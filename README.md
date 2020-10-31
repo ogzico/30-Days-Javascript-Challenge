@@ -1,4 +1,4 @@
-# JS-Drum-Kit
+# 30 Days Challenge
 
 Javascript 30 days challenge projects
 
