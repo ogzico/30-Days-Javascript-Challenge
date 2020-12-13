@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Devtools Tricks</title>
+</head>
+
+<body>
+    <p onclick="makeGreen()">xBREAKxDOWNx</p>
+    <script>
+        const dogs = [{ name: "Snickers", age: 2 }, { name: "hugo", age: 8 }];
+
+        function makeGreen() {
+            const p = document.querySelector('p');
+            p.style.color = '#BADA55';
+            p.style.fontSize = '50px'
+        }
+
+        console.log("Hello");
+
+        console.clear();
+
+        console.log("This is a %s string", "special")
+
+        console.log("%c I am some great text", "font-size:30px; background: green; color: #fff");
+
+        console.warn("STOP!");
+
+        console.error('An error');
+
+        console.info('This is info');
+
+        const p = document.querySelector('p')
+        console.assert(p.classList.contains('ouch'), 'That is wrong!')
+
+
+        console.log(p);
+        console.dir(p);
+
+        dogs.forEach(dog => {
+            console.group(`${dog.name}`)
+            console.log(`This is ${dog.name}`)
+            console.log(`${dog.name} is ${dog.age} years old`)
+            console.log(`${dog.name} is ${dog.age * 7} dog years`)
+            console.groupEnd(`${dog.name}`)
+        })
+
+        console.count("Ogzico");
+        console.count("Ogzico");
+        console.count("Ogzico");
+        console.count("Space");
+        console.count("Space");
+        console.count("Space");
+        console.count("Ogzico");
+
+        console.time('fetching data');
+        fetch('https://api.github.com/users/wesbos')
+        .then(data => data.json())
+        .then(data => {
+            console.timeEnd('fetching data');
+            console.log(data);
+        })
+
+        console.table(dogs)
+    </script>
+</body>
+
+</html>
