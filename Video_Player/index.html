@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Video Player</title>
+</head>
+<bod>
+    <div class="player">
+        <video class="player__video viewer" src="qenkis.mov">
+        </video>
+        <button class="player__button show toggle playOne" title="Toggle Play"></button>
+        <div class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-10" class="player__button"><<10s</button>
+            <button data-skip="25" class="player__button">25s >></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2626266c;
+            box-shadow: 0 4px 4px 0 rgba((0), 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        .player {
+            position: relative;
+            cursor: pointer;
+            transition: all .2s ease-out;
+        }
+
+        .player__button.playOne {
+            box-sizing: border-box;
+            width: 72px;
+            height: 72px;
+            border-color: transparent transparent transparent #fff;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            left: calc( 50% - 36px);
+            z-index: 100;
+            transition: all .2s ease-in;
+        }
+
+        .player__button.playOne.show {
+            border-style: solid;
+            border-width: 36px 0 36px 72px;
+        }
+        .player__button.playOne.hidden {
+            border-style: double;
+            border-width: 0 0 0 36px;
+          
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .player__button.playOne:hover {
+            border-color: transparent transparent transparent #e2e2e2;
+        }
+        .player:hover .player__button.playOne {
+            display: block;
+        }
+        .player:hover .player__video {
+            filter: grayscale(100%);
+        }
+        .player__controls{
+            position: absolute;
+            bottom: -20px;
+            opacity: 0;
+            transition: all .2s ease-in;
+            width: calc( 100% - 1rem);
+            padding: 1rem .5rem;
+        }
+
+        .player:hover .player__controls{
+            bottom: 0;
+            opacity: 1;
+            background-color: #000092;
+        }
+
+    </style>
+</bod>
+
+</html>
