@@ -1,9 +1,9 @@
 html {
-  height: 100vh;
+  min-height: 100vh;
   }
 body {
-  background: #000;
-  height: 500vh;
+  /* background: #000; */
+  min-height: 500vh;
 }
 canvas {
   position: fixed;
